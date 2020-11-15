@@ -1,6 +1,6 @@
 FROM alpine:3.12.1 as builder
 
-ARG ANSIBLE_VERSION=2.9.4
+ARG ANSIBLE_VERSION=2.10.3
 
 RUN apk --update --no-cache add \
 	gcc \
@@ -12,7 +12,7 @@ RUN apk --update --no-cache add \
 	ca-certificates \
 	git \
 	openssh-client \
-	rsync 
+	rsync
 
 RUN apk --update --no-cache add --virtual \
 	.build-deps \
@@ -23,7 +23,7 @@ RUN apk --update --no-cache add --virtual \
 	build-base \
 	py3-pip
 
-COPY requirements.txt /requirements.txt 
+COPY requirements.txt /requirements.txt
 
 RUN set -eux \
 	&& pip3 install --no-cache-dir ansible==${ANSIBLE_VERSION} \
@@ -43,7 +43,7 @@ ENV \
 	UID=1000 \
 	GID=1000
 
-ARG ANSIBLE_VERSION=2.9.4
+ARG ANSIBLE_VERSION=2.10.3
 
 LABEL "maintainer"="Simon Baerlocher <s.baerlocher@sbaerlocher.ch>" \
 	"org.opencontainers.image.authors"="Simon Baerlocher <s.baerlocher@sbaerlocher.ch>" \

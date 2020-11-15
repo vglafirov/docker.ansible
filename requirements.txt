@@ -7,3 +7,5 @@ dnspython3==1.15.0
 jmespath==0.10.0
 netaddr==0.8.0
 mitogen==0.2.9
+google-auth==1.23.0
+requests==2.22.0
